@@ -32,29 +32,44 @@ function catchFish() {
   }
 }
 
+// stimulates the catch
 function stimulateCatch (cod, salmon, tropical) {
+  // checks the values if they are out of hundred, if true, makes them out of 1
+  // also debugs mistakes - or potential mistkaes whn putting in values
   if (cod > 1){
     cod = cod/100
   } if (salmon > 1){
     salmon = salmon/100
   } if (tropical > 1){
     tropical = tropical/100
-  } if((cod + tropical + salmon) > 1){XSLTProcessor
+  } if((cod + tropical + salmon) > 1){
+    // logs if one of the numbers cuases all of them to be larger then 100%
     console.log(`Error - Percentage > 100: ${(cod + tropical + salmon)*100}`)
   }
+  // calculates the puffer value rather than takes it in order to preven tthe chance fo numbers equaling greater than 100%
   let puffer = 1 - cod - salmon - tropical
-  let order = [puffer + "p", salmon + "s", tropical + "t", cod + "c"];
-  console.log(order.sort())
+  // lists the values into a array and sorts them
+  let order = [{name:'puffer', quantity:puffer}, {name:'salmon', quantity:salmon}, {name:'tropical', quantity:tropical}, {name:'cod', quantity:cod}];
   r = Math.random();
-  let fish = order[1].split('').find().join('');
-  console.log(fish);
-  for (i = 0; order.length > i; i++){
-    if(order[i] > r) {
-      numCod++;
-      codSpanEl.innerHTML = numCod;
-      resultImgEl.src = "img/Raw-Cod.png";
-    }
-  }
+  console.log(order.quantity)
+  for(i)
+  if (order.name === "cod") {
+    numCod++;
+    codSpanEl.innerHTML = numCod;
+    resultImgEl.src = "img/Raw-Cod.png";
+  } else if (order.name === "salmon") {
+    numSalmon++;
+    salmonSpanEl.innerHTML = numSalmon;
+    resultImgEl.src = "img/Raw-Salmon.png";
+  } else if (order.name === "tropical") {
+    numTropical++;
+    tropicalSpanEl.innerHTML = numTropical;
+    resultImgEl.src = "img/Tropical-Fish.png";
+  } else {
+    numPuffer++;
+    pufferSpanEl.innerHTML = numPuffer;
+    resultImgEl.src = "img/Pufferfish.png";
+  } 
 }
 
 // function catchFish() {
