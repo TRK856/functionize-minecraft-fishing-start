@@ -24,10 +24,13 @@ fishBtnEl.addEventListener("click", catchFish);
 
 function catchFish() {
   if (character === "steve") {
+    // random numbers
     stimulateCatch(70, 10, 5)
   } else if (character === "alex") {
+    // random numbers
     stimulateCatch(70, 400, 5)
   } else if (character === "villager") {
+    // random numbers
     stimulateCatch(70, 400, 5)
   }
 }
@@ -46,22 +49,18 @@ function stimulateCatch (cod, salmon, tropical) {
     // logs if one of the numbers cuases all of them to be larger then 100%
     console.log(`Error - Percentage > 100: ${(cod + tropical + salmon)*100}`)
   }
-  // calculates the puffer value rather than takes it in order to preven tthe chance fo numbers equaling greater than 100%
-  let puffer = 1 - cod - salmon - tropical
-  // lists the values into a array and sorts them
-  let order = [{name:'puffer', quantity:puffer}, {name:'salmon', quantity:salmon}, {name:'tropical', quantity:tropical}, {name:'cod', quantity:cod}];
-  r = Math.random();
-  console.log(order.quantity)
-  for(i)
-  if (order.name === "cod") {
+
+  // old code
+  let randNum = Math.random();
+  if (randNum < cod) {
     numCod++;
     codSpanEl.innerHTML = numCod;
     resultImgEl.src = "img/Raw-Cod.png";
-  } else if (order.name === "salmon") {
+  } else if (randNum < salmon) {
     numSalmon++;
     salmonSpanEl.innerHTML = numSalmon;
     resultImgEl.src = "img/Raw-Salmon.png";
-  } else if (order.name === "tropical") {
+  } else if (randNum < tropical) {
     numTropical++;
     tropicalSpanEl.innerHTML = numTropical;
     resultImgEl.src = "img/Tropical-Fish.png";
@@ -69,72 +68,8 @@ function stimulateCatch (cod, salmon, tropical) {
     numPuffer++;
     pufferSpanEl.innerHTML = numPuffer;
     resultImgEl.src = "img/Pufferfish.png";
-  } 
+  }
 }
-
-// function catchFish() {
-//   if (character === "steve") {
-//     // STEVE PROBABILITIES: cod (70%), salmon (20%), tropical (5%), puffer (5%)
-//     let randNum = Math.random();
-//     if (randNum < 0.7) {
-//       numCod++;
-//       codSpanEl.innerHTML = numCod;
-//       resultImgEl.src = "img/Raw-Cod.png";
-//     } else if (randNum < 0.9) {
-//       numSalmon++;
-//       salmonSpanEl.innerHTML = numSalmon;
-//       resultImgEl.src = "img/Raw-Salmon.png";
-//     } else if (randNum < 0.95) {
-//       numTropical++;
-//       tropicalSpanEl.innerHTML = numTropical;
-//       resultImgEl.src = "img/Tropical-Fish.png";
-//     } else {
-//       numPuffer++;
-//       pufferSpanEl.innerHTML = numPuffer;
-//       resultImgEl.src = "img/Pufferfish.png";
-//     }
-//   } else if (character === "alex") {
-//     // ALEX PROBABILITIES: cod (10%), salmon (10%), tropical (30%), puffer (50%)
-//     let randNum = Math.random();
-//     if (randNum < 0.1) {
-//       numCod++;
-//       codSpanEl.innerHTML = numCod;
-//       resultImgEl.src = "img/Raw-Cod.png";
-//     } else if (randNum < 0.2) {
-//       numSalmon++;
-//       salmonSpanEl.innerHTML = numSalmon;
-//       resultImgEl.src = "img/Raw-Salmon.png";
-//     } else if (randNum < 0.5) {
-//       numTropical++;
-//       tropicalSpanEl.innerHTML = numTropical;
-//       resultImgEl.src = "img/Tropical-Fish.png";
-//     } else {
-//       numPuffer++;
-//       pufferSpanEl.innerHTML = numPuffer;
-//       resultImgEl.src = "img/Pufferfish.png";
-//     }
-//   } else if (character === "villager") {
-//     // VILLAGER PROBABILITIES: cod (25%), salmon (25%), tropical (25%), puffer (25%)
-//     let randNum = Math.random();
-//     if (randNum < 0.25) {
-//       numCod++;
-//       codSpanEl.innerHTML = numCod;
-//       resultImgEl.src = "img/Raw-Cod.png";
-//     } else if (randNum < 0.5) {
-//       numSalmon++;
-//       salmonSpanEl.innerHTML = numSalmon;
-//       resultImgEl.src = "img/Raw-Salmon.png";
-//     } else if (randNum < 0.75) {
-//       numTropical++;
-//       tropicalSpanEl.innerHTML = numTropical;
-//       resultImgEl.src = "img/Tropical-Fish.png";
-//     } else {
-//       numPuffer++;
-//       pufferSpanEl.innerHTML = numPuffer;
-//       resultImgEl.src = "img/Pufferfish.png";
-//     }
-//   }
-// }
 
 // Character Select
 steveImgEl.addEventListener("click", selectSteve);
